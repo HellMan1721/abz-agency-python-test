@@ -1,0 +1,6 @@
+<div>
+    {% url 'index' as index_url %}
+    <span>{% if request.path == index_url %}Главная страница{% else %}<a href="{{ index_url }}">Главная страница</a>{% endif %}</span>
+    {% url 'tree' as tree_url %}
+    <span>{% if request.path == tree_url %}Сотрудники{% else %}<a href="{{ tree_url }}">Сотрудники</a>{% endif %}</span> 
+</div>
