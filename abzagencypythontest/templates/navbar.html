@@ -2,5 +2,14 @@
     {% url 'index' as index_url %}
     <span>{% if request.path == index_url %}Главная страница{% else %}<a href="{{ index_url }}">Главная страница</a>{% endif %}</span>
     {% url 'tree' as tree_url %}
-    <span>{% if request.path == tree_url %}Сотрудники{% else %}<a href="{{ tree_url }}">Сотрудники</a>{% endif %}</span> 
+    <span>{% if request.path == tree_url %}Сотрудники{% else %}<a href="{{ tree_url }}">Сотрудники</a>{% endif %}</span>
+    <span style="float:right">
+        {% if user.is_authenticated %}
+            {% url 'profile' as profile_url %}
+            <span>Добро пожаловать, {% if request.path == profile_url %}{{ user.username }}!{% else %}<a href="{{ profile_url }}">{{ user.username }}!</a></span>
+            <span><a href="{% url 'logout' %}">Выйти</a></span>
+        {% else %}
+            <span><a href="{% url 'login' %}">Войти</a></span>
+        {% endif %}
+    </span>
 </div>
