@@ -3,5 +3,10 @@
 {% block title %}Сотрудники{% endblock %}
 
 {% block content %}
-    <h1>no tree for now</h1>
+    <h1>Дерево сотрудников</h1>
+    {% if nodes %}
+        {% include 'employee_tree.html' with nodes=nodes %}
+    {% else %}
+        <p>Сотрудники не найдены.</p>
+    {% endif %}
 {% endblock %}
