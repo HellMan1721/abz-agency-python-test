@@ -1,15 +1,32 @@
-<div>
-    {% url 'index' as index_url %}
-    <span>{% if request.path == index_url %}Главная страница{% else %}<a href="{{ index_url }}">Главная страница</a>{% endif %}</span>
-    {% url 'tree' as tree_url %}
-    <span>{% if request.path == tree_url %}Сотрудники{% else %}<a href="{{ tree_url }}">Сотрудники</a>{% endif %}</span>
-    <span style="float:right">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'index' %}">Employee Tree</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link{% if request.path == '/' %} active{% endif %}" href="{% url 'index' %}">Главная</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link{% if request.path == '/tree' %} active{% endif %}" href="{% url 'tree' %}">Сотрудники</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav">
         {% if user.is_authenticated %}
-            {% url 'users:profile' as profile_url %}
-            <span>Добро пожаловать, {% if request.path == profile_url %}{{ user.username }}!{% else %}<a href="{{ profile_url }}">{{ user.username }}!</a>{% endif %}</span>
-            <span><a href="{% url 'users:logout' %}">Выйти</a></span>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:profile' %}">{{ user.username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:logout' %}">Выйти</a>
+          </li>
         {% else %}
-            <span><a href="{% url 'users:login' %}">Войти</a></span>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'users:login' %}">Войти</a>
+          </li>
         {% endif %}
-    </span>
-</div>
+      </ul>
+    </div>
+  </div>
+</nav>

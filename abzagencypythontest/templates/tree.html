@@ -3,10 +3,14 @@
 {% block title %}Сотрудники{% endblock %}
 
 {% block content %}
-    <h1>Дерево сотрудников</h1>
+<div class="card shadow-sm">
+  <div class="card-body p-4">
+    <h1 class="h3 mb-4">Дерево сотрудников</h1>
     {% if nodes %}
         {% include 'employee_tree.html' with nodes=nodes %}
     {% else %}
-        <p>Сотрудники не найдены.</p>
+        <div class="alert alert-info mb-0">Сотрудники не найдены.</div>
     {% endif %}
+  </div>
+</div>
 {% endblock %}
