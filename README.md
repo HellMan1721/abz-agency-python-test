@@ -1,6 +1,6 @@
 # Вебсайт с древовидной иерархией сотрудников
 
-![Django Tests](https://github.com/your-username/abz-agency-python-test/actions/workflows/django-tests.yml/badge.svg)
+![Django Tests](https://github.com/HellMan1721/abz-agency-python-test/actions/workflows/django-tests.yml/badge.svg)
 
 ТЗ: [testovoe-zadanie-na-pozitsiyu-junior-python-developer.pdf](https://github.com/user-attachments/files/29798369/testovoe-zadanie-na-pozitsiyu-junior-python-developer.pdf)
 
