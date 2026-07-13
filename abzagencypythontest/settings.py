@@ -12,15 +12,18 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+from dotenv import load_dotenv
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+load_dotenv(BASE_DIR / '.env')
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-dev-key')
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 PROJECT_DIR = os.path.join(BASE_DIR, "abzagencypythontest")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-t)n%l(s&5zfvgezep2lm(xal6))_=cj0^bt8*g0va-zgegp1nb'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
